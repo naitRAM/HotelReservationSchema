@@ -145,20 +145,39 @@ INSERT INTO RoomAmenity(RoomId, AmenityId) VALUES
     (18, 4);
     
 DELETE FROM ReservationRoom 
-WHERE ReservationRoom.ReservationId = 
-	(SELECT ReservationId FROM 
-     Reservation WHERE Reservation.GuestId = 
-		(SELECT GuestId FROM Guest WHERE Guest.FirstName LIKE 'Jeremiah' AND Guest.LastName LIKE 'Pendergrass'));
+WHERE
+    ReservationRoom.ReservationId = (SELECT 
+        ReservationId
+    FROM
+        Reservation
+    
+    WHERE
+        Reservation.GuestId = (SELECT 
+            GuestId
+        FROM
+            Guest
+        
+        WHERE
+            Guest.FirstName LIKE 'Jeremiah'
+            AND Guest.LastName LIKE 'Pendergrass'));
 
 DELETE FROM Reservation 
-WHERE Reservation.GuestId =
-	(SELECT GuestId FROM Guest
-     WHERE Guest.FirstName like 'Jeremiah' AND Guest.LastName like 'Pendergrass');
+WHERE
+    Reservation.GuestId = (SELECT 
+        GuestId
+    FROM
+        Guest
+    
+    WHERE
+        Guest.FirstName LIKE 'Jeremiah'
+        AND Guest.LastName LIKE 'Pendergrass');
      
 SET SQL_SAFE_UPDATES = 0;
 
-DELETE FROM Guest
-WHERE Guest.FirstName like 'Jeremiah' AND Guest.LastName like 'Pendergrass';
+DELETE FROM Guest 
+WHERE
+    Guest.FirstName LIKE 'Jeremiah'
+    AND Guest.LastName LIKE 'Pendergrass';
 
 SET SQL_SAFE_UPDATES = 1;
     
