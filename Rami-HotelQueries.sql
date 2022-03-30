@@ -26,7 +26,6 @@ Guest,RoomNumber,CheckInDate,CheckOutDate
 */
     
     
--- 2. Return a list of all reservations for rooms with a jacuzzi, displaying the guest's name, the room number, and the dates of the reservation
 SELECT 
     CONCAT(g.FirstName, ' ', g.LastName) AS Guest,
     ro.RoomNum AS RoomNumber,
@@ -64,7 +63,6 @@ Guest,RoomNumber,CheckInDate,CheckOutDate
 */
     
 
--- 3. Return all the rooms reserved for a specific guest, including the guest's name, the room(s) reserved, the starting date of the reservation, and how many people were included in the reservation (Choose a guest's name from the existing data)
 SELECT 
     CONCAT(g.FirstName, ' ', g.LastName) AS Guest,
     ro.RoomNum AS RoomNum,
@@ -91,7 +89,6 @@ Guest,RoomNum,CheckInDate,GuestCount
 */
 
 
--- 4. Return a list of rooms, reservation ID, and per-room cost for each reservation. The results should include all rooms, whether or not there is a reservation associated with the room
 SELECT 
     ro.RoomNum AS RoomNumber,
     re.ReservationId AS ReservationId,
@@ -147,7 +144,6 @@ RoomNumber,ReservationId,TotalCost
 */
 
 
--- 5. Return all the rooms accommodating at least three guests and that are reserved on any date in April 2023
 SELECT 
     ro.RoomNum AS RoomNumber,
     (rr.AdultNum + rr.ChildNum) AS TotalGuests,
@@ -170,7 +166,6 @@ RoomNumber,TotalGuests,CheckInDate,CheckOutDate
 */
 
 
--- 6. Return a list of all guest names and the number of reservations per guest, sorted starting with the guest with the most reservations and then by the guest's last name
 SELECT 
     CONCAT(g.FirstName, ' ', g.LastName) AS Guest,
     COUNT(re.ReservationId) AS NumReservations
@@ -198,7 +193,6 @@ Guest,NumReservations
 */
 
 
--- Display the name, address, and phone number of a guest based on their phone number (Choose a phone number from the existing data)
 SELECT 
     CONCAT(FirstName, ' ', LastName) AS GuestName,
     Address,
