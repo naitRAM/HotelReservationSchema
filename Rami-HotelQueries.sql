@@ -1,3 +1,4 @@
+USE HotelReservation;
 
 -- 1. Return a list of reservations that end in July 2023, including the name of the guest, the room number(s), and the reservation dates
 SELECT 
