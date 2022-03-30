@@ -17,8 +17,6 @@ CREATE TABLE Reservation (
     ReservationId INT PRIMARY KEY AUTO_INCREMENT,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL,
-    AdultNum TINYINT,
-    ChildNum TINYINT,
     GuestId INT NOT NULL,
     CONSTRAINT FOREIGN KEY (GuestId)
         REFERENCES Guest (GuestId)
@@ -45,6 +43,8 @@ CREATE TABLE Room (
 CREATE TABLE ReservationRoom (
     ReservationId INT NOT NULL,
     RoomId SMALLINT NOT NULL,
+    AdultNum TINYINT,
+    ChildNum TINYINT,
     PRIMARY KEY pk_Reservation_Room (ReservationId , RoomId),
     CONSTRAINT FOREIGN KEY (ReservationId)
         REFERENCES Reservation (ReservationId),
